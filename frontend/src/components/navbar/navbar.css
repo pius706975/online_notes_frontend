@@ -1,0 +1,19 @@
+#navbar {
+    background-color: #88cff1;
+    color: white;
+}
+
+.navbutton {
+    background-color: #20a3e0;
+    border: 0px;
+}
+.navbutton:hover {
+    background-color: #0a5375;
+}
+
+
+#buttondevider {
+    width: 1px;
+    visibility: hidden;
+
+}
