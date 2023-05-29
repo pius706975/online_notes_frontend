@@ -5,9 +5,12 @@
 }
 
 .navbarbrand {
-    transition: 0.3s background;
+    transition: 0.22s color;
 }
 .navbarbrand:hover {
+    color: rgb(145, 145, 145);
+}
+.navbarbrand:active {
     color: white;
 }
 
@@ -15,10 +18,13 @@
     background:none;
     border: 0px;
     border-radius: 5px;
-    transition: 0.3s background;
+    transition: 0.3s background-color;
     padding: 10px;
 }
 .navbutton:hover {
+    background-color: #49bdf3;
+}
+.navbutton:active {
     background-color: #0a5375;
     color: white;
 }
