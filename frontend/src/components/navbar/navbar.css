@@ -1,19 +1,31 @@
 #navbar {
     background-color: #88cff1;
     color: white;
+    padding: 0px;
+}
+
+.navbarbrand {
+    transition: 0.3s background;
+}
+.navbarbrand:hover {
+    color: white;
 }
 
 .navbutton {
-    background-color: #20a3e0;
+    background:none;
     border: 0px;
+    border-radius: 5px;
+    transition: 0.3s background;
+    padding: 10px;
 }
 .navbutton:hover {
     background-color: #0a5375;
+    color: white;
 }
 
 
 #buttondevider {
-    width: 1px;
-    visibility: hidden;
+    width: 0.1px;
+    visibility:hidden;
 
 }
