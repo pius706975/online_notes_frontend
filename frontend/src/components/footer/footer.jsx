@@ -1,15 +1,17 @@
 import React from "react";
+import "../footer/footer.css"
+import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/js/bootstrap.bundle.min.js"
 
 function FooterCom() {
+
+    const currentYear = new Date().getFullYear()
+
     return (
         <div className="footer">
-            <div className="sb__footer section__padding">
-                <div className="sb__footer-links">
-                    <div className="sb__footer-links-div">
-                        <h4>footer</h4>
-                    </div>
-                </div>
-            </div>
+            <footer className="text-white footerText">
+                <p>Online Notes by Pius Copyright &copy; 2022-{currentYear}.</p> 
+            </footer>
         </div>
     )
 }

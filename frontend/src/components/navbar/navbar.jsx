@@ -26,8 +26,7 @@ function NavbarCom() {
                         </Nav>
                         
                         <Form className="d-flex">
-                            <button className="navbutton">Register</button>
-                            <button className="navbutton">Login</button>
+                            <button className="navbutton">Sign in</button>
                         </Form>
                         
                 

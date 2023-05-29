@@ -1,0 +1,29 @@
+.jumbroton {
+    background-color: transparent;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-top: 150px;
+    padding-bottom: 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.signup {
+    margin-top: 50px;
+}
+
+.btnColor {
+    background-color: rgba(66, 132, 255, 0.6);
+    transition: 0.3s background color;
+}
+.btnColor:hover{
+    background-color: rgba(66, 132, 255, 1);
+    color: white;
+}
+
+p {
+    font-size: 25px;
+}
+
+h1 {
+    font-weight: bolder;
+}
