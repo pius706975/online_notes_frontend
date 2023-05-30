@@ -1,20 +1,20 @@
-import {useSelector} from 'react-redux'
-import {Navigate} from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
-function WithAuth(Component, role) {
-    return (props)=>{
-        const {isAuth, data} = useSelector((state)=>state.users)
-        
+const withAuth = (Component, role) => {
+    return (props) => {
+        const { isAuth, data } = useSelector((state) => state.users)
+
         if (!isAuth) {
-            return <Navigate to="/signin"/>
-        } 
+            return <Navigate to="/signin" />
+        }
 
         if (role && data.role !== role) {
-            return <Navigate to="/"/>
+            return <Navigate to="/" />
         }
-        
-        return <Component {...props}/>
+
+         return <Component {...props} />
     }
 }
 
-export default WithAuth
+export default withAuth

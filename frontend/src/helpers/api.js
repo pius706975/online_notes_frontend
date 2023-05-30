@@ -1,33 +1,34 @@
 import axios from 'axios'
-import { useEffect, useState } from 'react'
-import {useSelector} from 'react-redux'
+import { useState, useEffect, useCallback } from 'react'
+import { useSelector } from 'react-redux'
 
 function Api(urls = '') {
-    const {token} = useSelector((state)=>state.users)
-
-    const [requests, setResquests] = useState({
+    
+    const { token } = useSelector((state) => state.users)
+    
+    const [requests, setRequests] = useState({
         baseURL: process.env.REACT_APP_BASE_URL || urls,
         headers: {
-            'Content-type': 'application/json',
+            'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`
         }
     })
 
-    const setConfig = ()=>{
-        setResquests({
-            ...requests,
+    const setConfig = useCallback(() => {
+        setRequests(prevRequests => ({
+            ...prevRequests,
             headers: {
-                'Content-type': 'application/json',
+                'Content-Type': 'application/json',
                 Authorization: `Bearer ${token}`
             }
-        })
-    }
+        }))
+    }, [token])
 
-    useEffect(()=>{
+    useEffect(() => {
         setConfig()
-    }, [])
+    }, [setConfig])
 
-    return {requests: axios.create(requests)}
+    return { requests: axios.create(requests) }
 }
 
 export default Api

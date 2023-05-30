@@ -1,6 +1,6 @@
-import {createSlice} from "@reduxjs/toolkit"
+import { createSlice } from '@reduxjs/toolkit'
 
-const userSLice = createSlice({
+const userSlice = createSlice({
     name: 'users',
     initialState: {
         isAuth: false,
@@ -9,25 +9,25 @@ const userSLice = createSlice({
     },
 
     reducers: {
-        signin(state, actions) {
-            console.log(actions.payload);
+        login(state, actions) {
+            console.log(actions.payload)
             return {
                 ...state,
                 isAuth: true,
                 token: actions.payload
             }
         },
-
-        signout(state, actions) {
-            console.log(actions.payload);
+        
+        logout(state, actions) {
+            console.log(actions.payload)
             return {
                 ...state,
                 isAuth: false,
                 token: ''
             }
         },
-
-        signup(state, actions) {
+        
+        addUsers(state, actions) {
             return {
                 ...state,
                 data: actions.payload
@@ -36,5 +36,5 @@ const userSLice = createSlice({
     }
 })
 
-export const {signin, signout, signup} = userSLice.actions
-export default userSLice.reducer
+export const { login, logout, addUsers } = userSlice.actions
+export default userSlice.reducer
