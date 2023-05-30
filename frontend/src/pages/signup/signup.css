@@ -1,6 +1,7 @@
 .signupContainer {
     color: white;
     background-color: rgba(0, 0, 0, 0.7);
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .signupForm {
@@ -19,5 +20,33 @@
 }
 
 p {
-    font-size: 15px;
+    font-size: 17px;
+}
+
+.btn-signupp{
+    background-color: rgba(0, 16, 109, 0.5);
+    border: 1px solid rgba(0, 16, 109, 0.5);
+    color: white;
+    transition: 0.22s background;
+}
+.btn-signupp:hover{
+    background-color: rgba(0, 16, 109, 1);
+    border: 1px solid rgba(0, 16, 109, 1);
+}
+.btn-signupp:active {
+    background-color: rgb(207, 207, 207);
+}
+
+.btn-signinn{
+    background-color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+    color: white;
+    transition: 0.22s background;
+}
+.btn-signinn:hover{
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.btn-signinn:active{
+    background-color: rgba(0, 16, 109, 1);
 }

@@ -21,11 +21,12 @@ function Signin() {
                     <label htmlFor="email">Email</label>
                     <input type="email" className="form-control form-control-md form-login" name="email" placeholder="john@email.com" required></input>
 
+                    <p></p>
                     <label htmlFor="password">Password</label>
                     <input type="password" className="form-control form-control-md form-login" name="password" placeholder="password" required></input>
 
                     <button className="invisibleBTN"></button>
-                    <button className="btn-signup form-login form-control form-control-md">Sign in</button>
+                    <button className="btn-signin form-login form-control form-control-md">Sign in</button>
 
                     <p></p>
                     <Link className="link" to="/forgotpasword">Forgot Password?</Link>

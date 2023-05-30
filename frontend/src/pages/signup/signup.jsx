@@ -23,18 +23,20 @@ function SignUp() {
                     <label htmlFor="username">Username</label>
                     <input type="text" className="form-control form-control-md form-login" name="username" placeholder="johndoe" required></input>
                     
+                    <p></p>
                     <label htmlFor="email">Email</label>
                     <input type="email" className="form-control form-control-md form-login" name="email" placeholder="john@email.com" required></input>
-
+                    
+                    <p></p>
                     <label htmlFor="password">Password</label>
                     <input type="password" className="form-control form-control-md form-login" name="password" placeholder="password" required></input>
 
                     <button className="invisibleBTN"></button>
-                    <button className="btn-signup form-login form-control form-control-md">Sign up</button>
+                    <button className="btn-signupp form-login form-control form-control-md">Sign up</button>
 
                     <p></p><br/>
                     <p>Do you have account?</p>
-                    <button className="btn-signup form-login form-control form-control-md" onClick={signin}>Sign in</button>
+                    <button className="btn-signinn form-login form-control form-control-md" onClick={signin}>Sign in</button>
                 </div>
             </div>
 
