@@ -18,7 +18,7 @@ function SignUp() {
         role: 'user'
     })
 
-    const {isAuth} = useSelector((state)=>state.users)
+    const {isAuth} = useSelector((state) => state.users)
     const api = Api()
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -27,7 +27,7 @@ function SignUp() {
         if (isAuth) {
             navigate('/')
         }
-    }, [isAuth])
+    }, [isAuth, navigate])
 
     const signin = ()=>{
         navigate('/signin')
@@ -51,7 +51,7 @@ function SignUp() {
             api
             .requests({
                 method: 'POST',
-                url: '/user',
+                url: '/user/register',
                 data: Users
             }).then((res)=>{
                 dispatch(addUsers(res.data))
