@@ -27,6 +27,14 @@ const userSLice = createSlice({
             }
         },
 
-        
+        signup(state, actions) {
+            return {
+                ...state,
+                data: actions.payload
+            }
+        }
     }
 })
+
+export const {signin, signout, signup} = userSLice.actions
+export default userSLice.reducer
