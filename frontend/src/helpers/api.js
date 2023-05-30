@@ -7,7 +7,7 @@ function Api(urls = '') {
     const { token } = useSelector((state) => state.users)
     
     const [requests, setRequests] = useState({
-        baseURL: process.env.REACT_APP_BASE_URL || urls,
+        baseURL: process.env.REACT_APP_BASEURL || urls,
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`
