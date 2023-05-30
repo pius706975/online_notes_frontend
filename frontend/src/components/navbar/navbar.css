@@ -1,11 +1,12 @@
 #navbar {
-    background-color: #88cff1;
+    background: linear-gradient(45deg, hsla(180, 88%, 6%, 1) 18%, hsla(236, 100%, 14%, 1) 100%);
     color: white;
     padding: 0px;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .navbarbrand {
+    color: white;
     transition: 0.22s color;
 }
 .navbarbrand:hover {
@@ -17,13 +18,14 @@
 
 .navbutton {
     background:none;
+    color: white;
     border: 0px;
     border-radius: 5px;
     transition: 0.3s background-color;
     padding: 10px;
 }
 .navbutton:hover {
-    background-color: #49bdf3;
+    background-color: #152b35;
 }
 .navbutton:active {
     background-color: #0a5375;

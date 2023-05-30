@@ -9,7 +9,7 @@ function FooterCom() {
 
     return (
         <div className="footer">
-            <footer className="text-white footerText">
+            <footer className="footerText">
                 <p>Online Notes by Pius Copyright &copy; 2022-{currentYear}.</p> 
             </footer>
         </div>

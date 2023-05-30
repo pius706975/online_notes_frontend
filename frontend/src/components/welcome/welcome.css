@@ -5,10 +5,12 @@
     margin-top: 150px;
     padding-bottom: 15px;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    color: white;
 }
 
 .signup {
     margin-top: 50px;
+    color: white;
 }
 
 .btnColor {
@@ -17,7 +19,7 @@
 }
 .btnColor:hover{
     background-color: rgba(66, 132, 255, 1);
-    color: white;
+    color: black;
 }
 
 p {

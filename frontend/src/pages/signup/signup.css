@@ -1,0 +1,23 @@
+.signupContainer {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.signupForm {
+    margin: auto;
+    height: 90vh;
+}
+
+.forms {
+    background-color: rgba(32, 32, 32, 0.7);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.invisibleBTN {
+    visibility: hidden;
+}
+
+p {
+    font-size: 15px;
+}
