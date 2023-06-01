@@ -4,7 +4,7 @@ import Home from "./pages/home/home";
 import SignUp from "./pages/signup/signup";
 import Note from "./pages/note/note";
 import Signin from "./pages/signin/signin";
-import Profile from "./pages/profile/profile";
+import EditProfile from "./pages/profile/editProfile";
 
 function TheRouter() {
     
@@ -15,7 +15,7 @@ function TheRouter() {
                 <Route path="/signup" element={<SignUp/>}/>
                 <Route path="/signin" element={<Signin/>}/>
                 <Route path="/note" element={<Note/>}/>
-                <Route path="/profile" element={<Profile/>}/>
+                <Route path="/profile/edit" element={<EditProfile/>}/>
             </Routes>
         </Router>
     )

@@ -85,7 +85,7 @@ function NavbarCom() {
                                         </Dropdown.Toggle>
 
                                         <Dropdown.Menu className="profile-menu">
-                                            <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+                                            <Dropdown.Item href="/profile/edit">Profile</Dropdown.Item>
                                             <Dropdown.Item onClick={()=>dispatch(logout())}>Sign out</Dropdown.Item>
                                         </Dropdown.Menu>
                                     </Dropdown>

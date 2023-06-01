@@ -1,0 +1,147 @@
+import React, { useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/js/bootstrap.bundle.min.js"
+import "../profile/profile.css"
+import NavbarCom from "../../components/navbar/navbar";
+import FooterCom from "../../components/footer/footer";
+import {Avatar} from "antd"
+import { Modal } from "react-bootstrap";
+import Api from "../../helpers/api";
+
+function EditProfile() {
+
+    const [isModalOpen, setIsModalOpen] = useState(false)
+    const showModal = ()=>{
+        setIsModalOpen(true)
+    }
+    const handleOK = ()=>{
+        setIsModalOpen(false)
+    }
+    const handleCancel = ()=>{
+        setIsModalOpen(false)
+    }
+
+    const api = Api()
+    const [bg1, setBg1] = useState(true)
+    const [bg2, setBg2] = useState(false)
+    const [name1, setName1] = useState("")
+    const [username, setUsername] = useState("")
+    const [email, setEmail] = useState("")
+    const [country, setCountry] = useState("")
+    const [gender, setGender] = useState("")
+    const [phone, setPhone] = useState("")
+    const [image, setImage] = useState("")
+    const [year, setYear] = useState("")
+
+    const [data1, setData1] = useState("")
+    const [data2, setData2] = useState("")
+    const [data3, setData3] = useState("")
+    const [data4, setData4] = useState("")
+    const [data5, setData5] = useState("")
+    const [data6, setData6] = useState("")
+    const [data7, setData7] = useState("")
+
+    const getUser = ()=>{
+        api.requests({
+            url: '/user/profile'
+        }).then((res)=>{
+            setData1(res.data.data.name)
+            setData2(res.data.data.username)
+            setData3(res.data.data.email)
+            setData4(res.data.data.country)
+            setData5(res.data.data.gender)
+            setData6(res.data.data.mobile_number)
+            setData7(res.data.data.image)
+
+            const {data} = res.data
+            const year = data.created_at.split('-')[0]
+            setYear({...data, created_year: year})
+            console.log(data);
+        }).catch((err)=>{
+            console.log(err);
+        })
+    }
+
+    const updateUser = ()=>{
+        api.requests({
+            method: 'PUT',
+            url: '/user/profile/edit',
+            headers: {'Content-Type': 'multipart/form-data'},
+            data: {
+                name: name1,
+                username: username,
+                email: email,
+                country: country,
+                gender: gender,
+                mobile_number: phone,
+                image: image,
+            },
+        }).then((res)=>{
+            console.log(res.data);
+        }).catch((err)=>{
+            console.log(err);
+        })
+    }
+
+    const bg1Handler = ()=>{
+        setBg1(true)
+        setBg2(false)
+        setGender("Male")
+    }
+
+    const bg2Handler = ()=>{
+        setBg1(false)
+        setBg2(true)
+        setGender("Female")
+    }
+
+    const genderHandler = ()=>{
+        if (data5 === "Male") {
+            setBg1(true)
+            setBg2(false)
+        } else if (data5 === "Female") {
+            setBg1(false)
+            setBg2(true)
+        }
+    }
+
+    useEffect(()=>{
+        getUser()
+    }, [])
+
+    useEffect(()=>{
+        genderHandler()
+    }, [data5])
+
+    return (
+        <div className="profileContainer">
+            <NavbarCom/>
+
+            <section className="mt-5">
+
+                <div className="container">
+
+                    <div className="row">
+                        <h2 className="profile-title">Profile Edit</h2>
+                    </div>
+
+                    <div className="profile-img text-center p-4">
+                        <div className="flex flex-row justify-content-center">
+                            <Avatar className="rounded-circle" style={{width:"150px", height:"150px", border:"1px white solid", objectFit:"cover", cursor:"pointer"}} alt="image"/>
+
+                            <p className="fw bold change-pic">Change profile picture</p>
+
+                            <Modal title="Choose you profile photo"></Modal>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <FooterCom/>
+        </div>
+    )
+}
+
+export default EditProfile
