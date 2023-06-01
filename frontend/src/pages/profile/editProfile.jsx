@@ -4,9 +4,10 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js"
 import "../profile/profile.css"
 import NavbarCom from "../../components/navbar/navbar";
 import FooterCom from "../../components/footer/footer";
-import {Avatar} from "antd"
-import { Modal } from "react-bootstrap";
+import {Avatar, Modal} from "antd"
+import 'antd/dist/antd.js'
 import Api from "../../helpers/api";
+import {FiEdit} from "react-icons/fi"
 
 function EditProfile() {
 
@@ -127,11 +128,16 @@ function EditProfile() {
 
                     <div className="profile-img text-center p-4">
                         <div className="flex flex-row justify-content-center">
-                            <Avatar className="rounded-circle" style={{width:"150px", height:"150px", border:"1px white solid", objectFit:"cover", cursor:"pointer"}} alt="image"/>
+                            <Avatar className="rounded-circle" style={{width:"150px", height:"150px", border:"1px white solid", objectFit:"cover"}} alt="image" src={data7}/>
 
-                            <p className="fw bold change-pic">Change profile picture</p>
+                            <p className="fw-bold change-pic" onClick={showModal} style={{cursor:"pointer"}}><FiEdit/> Change picture</p>
 
-                            <Modal title="Choose you profile photo"></Modal>
+                            <Modal title="Choose you profile photo" open={isModalOpen} onOk={handleOK} onCancel={handleCancel}>
+                                <input type="file" placeholder="User Picture" />
+                            </Modal>
+
+                            <h2 className="fw-bold name text-white">{data1}</h2>
+
                         </div>
                     </div>
 

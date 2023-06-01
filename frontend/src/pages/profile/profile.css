@@ -1,5 +1,10 @@
+
+
 .container {
     font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    padding: 10px;
 }
 
 .profile-title {
