@@ -32,7 +32,7 @@ function NavbarCom() {
         if (isAuth) {
             getUser()
         }
-    })
+    }, [])
 
     const home = ()=>{
         navigate('/')

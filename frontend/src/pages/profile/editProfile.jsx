@@ -8,6 +8,11 @@ import {Avatar, Modal} from "antd"
 import 'antd/dist/antd.js'
 import Api from "../../helpers/api";
 import {FiEdit} from "react-icons/fi"
+import {AiOutlineMail, AiOutlineEdit} from "react-icons/ai"
+import {BsTelephoneForward} from "react-icons/bs"
+import {MdOutlineJoinInner} from "react-icons/md"
+import { Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function EditProfile() {
 
@@ -123,7 +128,7 @@ function EditProfile() {
                 <div className="container">
 
                     <div className="row">
-                        <h2 className="profile-title">Profile Edit</h2>
+                        <h2 className="profile-title">Edit Profile <AiOutlineEdit/></h2>
                     </div>
 
                     <div className="profile-img text-center p-4">
@@ -136,8 +141,42 @@ function EditProfile() {
                                 <input type="file" placeholder="User Picture" />
                             </Modal>
 
-                            <h2 className="fw-bold name text-white">{data1}</h2>
+                            <h3 className="fw-bold name text-white">{data1}</h3>
 
+                            <p className="main-user info"><AiOutlineMail/> {data3}<br/><BsTelephoneForward/> {data6}<br/><MdOutlineJoinInner/> Has been active since {year.created_year}</p>
+                        </div>
+
+                        <div className="flex flex-row justify-content-center">
+                            <Form>
+                                {['radio'].map((type)=>(
+                                    <div className="mb-3 text-white" key={`inline-${type}`}>
+                                        <Form.Check inline label="Male" name="gender" type={type} onClick={bg1Handler} checked={bg1} />
+
+                                        <Form.Check inline label="Female" name="gender" type={type} onClick={bg2Handler} checked={bg2} />
+                                    </div>
+                                ))}
+                            </Form>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p className="fw-bold">Contacts :</p>
+                        <Form.Control type="text" className="update-field" placeholder="Display name" defaultValue={data1} onChange={(event)=>setName1(event.target.value)} />
+
+                        <Form.Control type="text" className="update-field" placeholder="Username" defaultValue={data2} onChange={(event)=>setUsername(event.target.value)} />
+
+                        <Form.Control type="text" className="update-field" placeholder="Email" defaultValue={data3} onChange={(event)=>setEmail(event.target.value)} />
+
+                        <Form.Control type="text" className="update-field" placeholder="Country" defaultValue={data4} onChange={(event)=>setCountry(event.target.value)} />
+
+                        <Form.Control type="text" className="update-field" placeholder="Mobile number" defaultValue={data6} onChange={(event)=>setPhone(event.target.value)} />
+                    </div>
+
+                    <div className="row mt-5 mb-5">
+                        <div className="col-md-4">
+                            <Link>
+                                <button className="save-btn btn-lg w-100 fw-bold" onClick={updateUser}>Save changes</button>
+                            </Link>
                         </div>
                     </div>
 
