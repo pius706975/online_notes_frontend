@@ -83,7 +83,7 @@ function SignUp() {
                     <button className="btn-signupp form-login form-control form-control-md" onClick={signup}>Sign up</button>
 
                     <p></p><br/>
-                    <p>Already have account?</p>
+                    <p>Already have an account?</p>
                     <button className="btn-signinn form-login form-control form-control-md" onClick={signin}>Sign in</button>
                 </div>
             </div>

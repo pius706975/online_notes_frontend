@@ -13,6 +13,8 @@ import {BsTelephoneForward} from "react-icons/bs"
 import {MdOutlineJoinInner} from "react-icons/md"
 import { Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import Welcome from "../../components/welcome/welcome";
 
 function EditProfile() {
 
@@ -27,6 +29,7 @@ function EditProfile() {
         setIsModalOpen(false)
     }
 
+    const {isAuth} = useSelector((state)=>state.users)
     const api = Api()
     const [bg1, setBg1] = useState(true)
     const [bg2, setBg2] = useState(false)
@@ -39,6 +42,8 @@ function EditProfile() {
     const [image, setImage] = useState("")
     const [year, setYear] = useState("")
 
+    const [imgData, setImgData] = useState([])
+
     const [data1, setData1] = useState("")
     const [data2, setData2] = useState("")
     const [data3, setData3] = useState("")
@@ -46,6 +51,17 @@ function EditProfile() {
     const [data5, setData5] = useState("")
     const [data6, setData6] = useState("")
     const [data7, setData7] = useState("")
+
+    const onChangeFile = (event)=>{
+        event.preventDefault()
+
+        const file = event.target.files[0]
+        if (file) {
+            const tmpData = {...imgData}
+            tmpData['image'] = file
+            setImgData(tmpData)
+        }
+    }
 
     const getUser = ()=>{
         api.requests({
@@ -125,62 +141,68 @@ function EditProfile() {
 
             <section className="mt-5">
 
-                <div className="container">
+                {isAuth ? (
+                    <div className="formContainer">
 
-                    <div className="row">
-                        <h2 className="profile-title">Edit Profile <AiOutlineEdit/></h2>
-                    </div>
-
-                    <div className="profile-img text-center p-4">
-                        <div className="flex flex-row justify-content-center">
-                            <Avatar className="rounded-circle" style={{width:"150px", height:"150px", border:"1px white solid", objectFit:"cover"}} alt="image" src={data7}/>
-
-                            <p className="fw-bold change-pic" onClick={showModal} style={{cursor:"pointer"}}><FiEdit/> Change picture</p>
-
-                            <Modal title="Choose you profile photo" open={isModalOpen} onOk={handleOK} onCancel={handleCancel}>
-                                <input type="file" placeholder="User Picture" />
-                            </Modal>
-
-                            <h3 className="fw-bold name text-white">{data1}</h3>
-
-                            <p className="main-user info"><AiOutlineMail/> {data3}<br/><BsTelephoneForward/> {data6}<br/><MdOutlineJoinInner/> Has been active since {year.created_year}</p>
+                        <div className="row">
+                            <h2 className="profile-title">Edit Profile <AiOutlineEdit/></h2>
                         </div>
 
-                        <div className="flex flex-row justify-content-center">
-                            <Form>
-                                {['radio'].map((type)=>(
-                                    <div className="mb-3 text-white" key={`inline-${type}`}>
-                                        <Form.Check inline label="Male" name="gender" type={type} onClick={bg1Handler} checked={bg1} />
+                        <div className="profile-img text-center p-4">
+                            <div className="flex flex-row justify-content-center">
+                                <Avatar className="rounded-circle" style={{width:"150px", height:"150px", border:"1px white solid", objectFit:"cover"}} alt="image" src={data7} />
 
-                                        <Form.Check inline label="Female" name="gender" type={type} onClick={bg2Handler} checked={bg2} />
-                                    </div>
-                                ))}
-                            </Form>
+                                <p className="fw-bold change-pic" onClick={showModal} style={{cursor:"pointer"}}><FiEdit/> Change picture</p>
+
+                                <Modal title="Choose you profile photo" open={isModalOpen} onOk={handleOK} onCancel={handleCancel}>
+                                    <input type="file" placeholder="User Picture" onChange={onChangeFile} defaultValue={data7}/>
+                                </Modal>
+
+                                <h3 className="fw-bold name text-white">{data1}</h3>
+
+                                <p className="main-user info"><AiOutlineMail/> {data3}<br/><BsTelephoneForward/> {data6}<br/><MdOutlineJoinInner/> Has been active since {year.created_year}</p>
+                            </div>
+
+                            <div className="flex flex-row justify-content-center">
+                                <Form>
+                                    {['radio'].map((type)=>(
+                                        <div className="mb-3 text-white" key={`inline-${type}`}>
+                                            <Form.Check inline label="Male" name="gender" type={type} onClick={bg1Handler} checked={bg1} />
+
+                                            <Form.Check inline label="Female" name="gender" type={type} onClick={bg2Handler} checked={bg2} />
+                                        </div>
+                                    ))}
+                                </Form>
+                            </div>
                         </div>
-                    </div>
 
-                    <div>
-                        <p className="fw-bold">Contacts :</p>
-                        <Form.Control type="text" className="update-field" placeholder="Display name" defaultValue={data1} onChange={(event)=>setName1(event.target.value)} />
+                        <div>
+                            <p className="fw-bold">Contacts :</p>
+                            <Form.Control type="text" className="update-field" placeholder="Display name" defaultValue={data1} onChange={(event)=>setName1(event.target.value)} />
 
-                        <Form.Control type="text" className="update-field" placeholder="Username" defaultValue={data2} onChange={(event)=>setUsername(event.target.value)} />
+                            <Form.Control type="text" className="update-field" placeholder="Username" defaultValue={data2} onChange={(event)=>setUsername(event.target.value)} />
 
-                        <Form.Control type="text" className="update-field" placeholder="Email" defaultValue={data3} onChange={(event)=>setEmail(event.target.value)} />
+                            <Form.Control type="text" className="update-field" placeholder="Email" defaultValue={data3} onChange={(event)=>setEmail(event.target.value)} />
 
-                        <Form.Control type="text" className="update-field" placeholder="Country" defaultValue={data4} onChange={(event)=>setCountry(event.target.value)} />
+                            <Form.Control type="text" className="update-field" placeholder="Country" defaultValue={data4} onChange={(event)=>setCountry(event.target.value)} />
 
-                        <Form.Control type="text" className="update-field" placeholder="Mobile number" defaultValue={data6} onChange={(event)=>setPhone(event.target.value)} />
-                    </div>
-
-                    <div className="row mt-5 mb-5">
-                        <div className="col-md-4">
-                            <Link>
-                                <button className="save-btn btn-lg w-100 fw-bold" onClick={updateUser}>Save changes</button>
-                            </Link>
+                            <Form.Control type="text" className="update-field" placeholder="Mobile number" defaultValue={data6} onChange={(event)=>setPhone(event.target.value)} />
                         </div>
-                    </div>
 
-                </div>
+                        <div className="row mt-5 mb-5">
+                            <div className="col-md-4">
+                                <Link>
+                                    <button className="save-btn btn-lg fw-bold" onClick={updateUser}>Save changes</button>
+                                </Link>
+                            </div>
+                        </div>
+
+                    </div>
+                ) : (
+                    <Welcome/>
+                )}
+
+
 
             </section>
 

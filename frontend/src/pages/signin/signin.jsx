@@ -75,7 +75,7 @@ function Signin() {
                     <Link className="link" to="/forgotpasword">Forgot Password?</Link>
                     <p></p><br/>
 
-                    <p>Don't have account?</p>
+                    <p>Don't have an account?</p>
                     <button className="btn-signup form-login form-control form-control-md" onClick={signup}>Sign up</button>
                 </div>
             </div>
