@@ -39,7 +39,7 @@ function NavbarCom() {
     }
 
     const note = ()=>{
-        navigate('/note')
+        navigate('/notes')
     }
 
     const history = ()=>{

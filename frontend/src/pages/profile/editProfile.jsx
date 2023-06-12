@@ -14,7 +14,7 @@ import {MdOutlineJoinInner} from "react-icons/md"
 import { Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import Welcome from "../../components/welcome/welcome";
+import NotePad from "../../components/note/notePad";
 
 function EditProfile() {
 
@@ -199,7 +199,7 @@ function EditProfile() {
 
                     </div>
                 ) : (
-                    <Welcome/>
+                    <NotePad/>
                 )}
 
 
