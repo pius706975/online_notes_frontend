@@ -17,7 +17,7 @@ function TheRouter() {
                 <Route path="/signin" element={<Signin/>}/>
                 <Route path="/profile/edit" element={<EditProfile/>}/>
                 <Route path="/notes" element={<Notes/>}/>
-                <Route path="/notes/preview" element={<NotePreview/>}/>
+                <Route path="/notes/preview/:id" element={<NotePreview/>}/>
             </Routes>
         </Router>
     )
