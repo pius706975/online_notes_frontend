@@ -4,11 +4,12 @@
     background-color: rgb(44, 44, 44);
     height: 150px;
     width: 200px;
-    padding: 20px;
+    padding: 10px;
+    overflow: hidden;
   }
   
   .card-content {
-    padding: 10px 0 0 15px;
+    padding: 0px 0 0 15px;
     height: 70px;
     width: 45%;
     background-color: rgb(124, 124, 124);
@@ -23,7 +24,8 @@
   }
 
   .card-note {
-    font-size: 10px;
+    font-size: 15px;
+    overflow: hidden;
   }
 
   .card-title {
@@ -37,7 +39,7 @@
     font-style: italic;
     margin-right: 5px;
     text-align: right;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: bolder;
     margin-bottom: 5px;
   }
