@@ -2,8 +2,8 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.bundle.min.js"
 import "../card/card.css"
-import { Link } from "react-router-dom";
-import {AiOutlineDelete, AiOutlineEdit} from "react-icons/ai"
+import { Link} from "react-router-dom";
+import Api from "../../helpers/api";
 
 function Card(props) {
 
@@ -21,10 +21,10 @@ function Card(props) {
 
                 <div className="card-content">
                     <p className="card-title">{props.name}</p>
-                    <button className="card-button"><AiOutlineEdit/></button>
-                    <button className="card-button"><AiOutlineDelete/></button>
                 </div>
             </Link>
+
+
         </div>
     )
 }
