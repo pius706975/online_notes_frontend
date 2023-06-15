@@ -15,7 +15,7 @@ function NotePreview() {
     const params = useParams()
     const [title, setTitle] = useState("")
     const [note, setNote] = useState("")
-    
+
     const getPreview = ()=>{
         api.requests({
             url: '/note/' + params.id
@@ -42,10 +42,11 @@ function NotePreview() {
 
                 {isAuth ? (
                     <div className="note-preview-container">
-                        <h1>Note Preview</h1>
-                        <h3>{title}</h3>
+                        <h1 className="h1-title text-white">{title}</h1>
                         <p></p>
-                        <p>{note}</p>
+                        <p className="p-note">{note}</p>
+                        <button>Edit</button>
+                        <button>Delete</button>
                     </div>
                 ):(
                     <h1>You haven't made any notes</h1>
