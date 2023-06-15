@@ -11,11 +11,12 @@
   .card-content {
     /* padding: 0px 0 0 15px; */
     height: 40px;
-    width: 45%;
+    width: 40%;
     background-color: rgb(124, 124, 124);
     position: relative;
     bottom: 65px;
     border-radius: 0 10px 0 10px;
+    overflow: hidden;
   }
   
   .link-card {
@@ -30,9 +31,9 @@
 
   .card-title {
     padding: 5px;
-    margin-left: auto;
-    text-align: left;
-    font-size: 17px;
+    margin: auto;
+    text-align: center;
+    font-size: 15px;
     font-weight: bolder;
   }
 

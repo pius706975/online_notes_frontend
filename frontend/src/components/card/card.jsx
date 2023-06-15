@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.bundle.min.js"
 import "../card/card.css"
 import { Link} from "react-router-dom";
-import Api from "../../helpers/api";
 
 function Card(props) {
 
