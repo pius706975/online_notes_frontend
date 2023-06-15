@@ -47,6 +47,7 @@ function Notes() {
                         <div className="row">
                             <div className="col-sm-6">
                                 <h2 className="title text-white">Your Notes</h2>
+                                <h2>&nbsp;</h2>
                             </div>
 
                             <div className="row">
