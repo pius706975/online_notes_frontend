@@ -12,9 +12,8 @@ import {AiOutlineMail, AiOutlineEdit} from "react-icons/ai"
 import {BsTelephoneForward} from "react-icons/bs"
 import {MdOutlineJoinInner} from "react-icons/md"
 import { Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import NotePad from "../../components/note/notePad";
 
 function EditProfile() {
 
@@ -30,6 +29,7 @@ function EditProfile() {
     }
 
     const {isAuth} = useSelector((state)=>state.users)
+    const navigate = useNavigate()
     const api = Api()
     const [bg1, setBg1] = useState(true)
     const [bg2, setBg2] = useState(false)
@@ -199,7 +199,7 @@ function EditProfile() {
 
                     </div>
                 ) : (
-                    <NotePad/>
+                    window.location.reload(navigate('/'))
                 )}
 
 
