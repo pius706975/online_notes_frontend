@@ -65,7 +65,7 @@ function NotePad() {
                 <input type="text" name="title" className="note-title" placeholder="Title" onChange={onChangeInput} required/> <br />
                 <textarea className="notepad__textarea" name="note" placeholder="Your note . . ." onChange={onChangeInput}/> <br />
  
-                <div className="buttons">
+                <div className="button">
                     <button className="save-button" onClick={addNote}><BsSave2/> Save</button>
                 </div>
             </div>

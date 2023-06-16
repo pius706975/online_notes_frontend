@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.js'
-import "../notes/notePreview.css"
+import "../notes/styling/notePreview.css"
 import NavbarCom from "../../components/navbar/navbar";
 import FooterCom from "../../components/footer/footer";
 import { useSelector } from "react-redux";
 import Api from "../../helpers/api";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Modal } from "react-bootstrap";
 
 function NotePreview() {
@@ -72,10 +72,12 @@ function NotePreview() {
 
                         <p>&nbsp;</p>
                         <div className="buttons">
-                            <button className="note-preview-buttons">Edit</button>
+                            <Link to={"/note/edit/" + params.id}>
+                                <button className="note-preview-buttons">Edit</button>
+                            </Link>
                             <button className="separator"></button>
                             <button className="note-preview-buttons" onClick={()=>{handleShow(params.id)}}>Delete</button>
-                            <Modal show={showModal} onHide={handleClose}>
+                            <Modal className="centered-modal" show={showModal} onHide={handleClose}>
                                 <Modal.Header closeButton>
                                     <Modal.Title>
                                         Confirm Deletion

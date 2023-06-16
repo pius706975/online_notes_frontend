@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.bundle.min.js"
-import "../notes/notes.css"
+import "../notes/styling/notes.css"
 import NavbarCom from "../../components/navbar/navbar";
 import FooterCom from "../../components/footer/footer";
 import Api from "../../helpers/api";

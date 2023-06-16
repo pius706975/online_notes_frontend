@@ -52,3 +52,7 @@
     visibility: hidden;
     width: 2%;
 }
+
+.centered-modal {
+    margin-top: 20%;
+}
